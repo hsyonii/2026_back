@@ -1,8 +1,8 @@
-package day0729;
+package practice;
 
 import java.util.Scanner;
 
-public class Exam2 {
+public class Practice1 {
     public static void main(String[] args) {
         /* 문제 1: 리터럴(Literal)과 기본 출력 함수
         지시: System.out.println() 함수를 사용해서 숫자 25와 문자열 "홍길동"을 각각 다른 줄에 출력 하시오.*/
@@ -110,8 +110,9 @@ public class Exam2 {
         출력 예시:
         입력하신 성별은 '남' 입니다.
         */
-
-        
+        System.out.print("\n성별 입력: ");
+        String 성별 = scan.next();
+        System.out.printf("\n입력하신 성별은 '%s'입니다.",성별);
 
         /*
         문제 11: Scanner를 사용하여 아래 4가지 정보를 순서대로 입력받아 출력하는 코드를 작성하시오.
@@ -128,6 +129,18 @@ public class Exam2 {
         키: 165.8cm
         프로그래머 여부: true
         */
-
+        System.out.print("\n이름: ");
+        String 이름 = scan.next();
+        System.out.print("\n나이: ");
+        int 나이 = scan.nextInt();
+        System.out.print("\n키: ");
+        float 키 = scan.nextFloat();
+        System.out.print("\n프로그래머 입니까? (true/false): ");
+        Boolean 대답 = scan.nextBoolean();
+        System.out.println("[ 자기소개 ]");
+        System.out.printf("이름: %s",이름);
+        System.out.printf("나이: %d",나이);
+        System.out.printf("키: %f",키);
+        System.out.printf("프로그래머 여부: %b",대답);
     }
 }

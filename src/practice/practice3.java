@@ -1,4 +1,4 @@
-package day0729;
+package practice;
 
 import java.util.Scanner;
 
@@ -73,6 +73,11 @@ public class practice3 {
         비밀번호: 1234
         출력 예시:
         결과: true */
+        System.out.print("id: ");
+        String id = scan.next();
+        System.out.print("\npw: ");
+        String pw = scan.next();
+        System.out.println(id.equals("admin")&&pw.equals("1234"));
 
         /*[문제 7] Scanner를 이용해 정수 하나를 입력받아, 그 수가 홀수이면서 7의 배수이면 true, 아니면 false를 출력하시오.
         입력 예시:

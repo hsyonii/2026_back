@@ -1,8 +1,8 @@
-package day0729;
+package practice;
 
 import java.util.Scanner;
 
-public class pracitce2 {
+public class Practice2 {
     public static void main(String[] args) {
         /*문제 1: a 와 b 두 변수의 합을 long 타입의 변수에 저장하여 그 결과를 출력하시오.
         선언 코드 :
