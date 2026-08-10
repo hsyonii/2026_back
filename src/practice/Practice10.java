@@ -2,7 +2,13 @@ package practice;
 
 public class Practice10 {
     public static void main(String[] args) {
-        
+        Member member  =  new Member();
+        member.setId("admin");
+        System.out.println(member);
+
+        Score score = new Score();
+        score.setScore(85);
+        score.setScore(120);
     }
 }
 /*[문제 1] Member 클래스를 만드세요.
@@ -28,12 +34,36 @@ class Member{
 2. 점수를 설정하는 setScore(int score) 메소드를 정의하세요.
 3. 이 메소드는 매개변수로 받은 점수가 0 이상 100 이하일 경우에만 멤버 변수 score에 값을 저장하고, 범위를 벗어나면 "유효하지 않은 점수입니다."라고 출력해야 합니다.
 4. main 함수에서 Score 객체를 생성하고, setScore(85)와 setScore(120)를 각각 호출하여 결과가 올바르게 나오는지 확인하세요.*/
+class Score{
+    private int score;
+
+    public void setScore(int score) {
+        if(score>=0&&score<=100){
+            this.score = score;
+        }
+    System.out.println("유효하지 않은 점수");
+    }
+}
+
 
 /*[문제 3] BankAccount 클래스를 만드세요.
 1. private 접근 제한자를 가진 accountNumber(문자열) 멤버 변수를 가집니다.
 2. 객체를 생성할 때만 계좌번호를 설정할 수 있도록, accountNumber를 초기화하는 생성자를 만드세요.
 3. 계좌번호를 외부에서 읽을 수만 있도록 public 접근 제한자를 가진 getAccountNumber() 메소드(Getter)만 정의하세요. (Setter는 만들지 않습니다.)
 4. main 함수에서 "123-456"을 계좌번호로 가진 객체를 생성하고, getAccountNumber()로 계좌번호를 출력하여 확인하세요.*/
+class BackAccount{
+    private String accountNumber;
+
+    public BackAccount(String accountNumber) {
+        this.accountNumber = accountNumber;
+    }
+    public void getScore(){
+        
+    }
+
+    
+}
+
 
 /*[문제 4] CircleCalculator 클래스를 만드세요.
 1. 이 클래스 안에, 원주율(PI)을 저장할 final double PI = 3.14159; 상수를 선언하세요.
