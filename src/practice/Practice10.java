@@ -9,6 +9,10 @@ public class Practice10 {
         Score score = new Score();
         score.setScore(85);
         score.setScore(120);
+
+        CircleCalculator circleCalculator = new CircleCalculator();
+        circleCalculator.printCircleArea(5);
+
     }
 }
 /*[문제 1] Member 클래스를 만드세요.
@@ -58,7 +62,7 @@ class BackAccount{
         this.accountNumber = accountNumber;
     }
     public void getScore(){
-        
+
     }
 
     
@@ -69,14 +73,24 @@ class BackAccount{
 1. 이 클래스 안에, 원주율(PI)을 저장할 final double PI = 3.14159; 상수를 선언하세요.
 2. 반지름(정수)을 매개변수로 받아, 원의 넓이(반지름 * 반지름 * PI)를 계산하여 출력하는 printCircleArea 메소드를 정의하세요.
 3. main 함수에서 CircleCalculator 객체를 생성하고, 반지름이 5인 원의 넓이를 출력하세요.*/
-
+class CircleCalculator{
+    private final double PI = 3.14159;
+    void printCircleArea(int 반지름){
+        double 원넓이 = 반지름*반지름*PI;
+        System.out.println(원넓이);
+        return;
+    }
+}
 /*[문제 5] TicketMachine 클래스를 만드세요.
 1. 이 클래스 안에, 발권된 총 티켓 수를 저장할 static int totalTickets = 0; 정적 변수를 선언하세요.
 2. 티켓을 한 장 발권하는 issueTicket() 인스턴스 메소드를 만드세요. 이 메소드는 호출될 때마다 totalTickets를 1씩 증가시키고, "티켓 1장을 발권했습니다."라고 출력합니다.
 3. 현재까지 발권된 총 티켓 수를 출력하는 static void printTotalTickets() 정적 메소드를 만드세요.
 4. main 함수에서 TicketMachine 객체 3개(machine1, machine2, machine3)를 생성하세요.
 5. machine1으로 티켓 2장, machine2로 티켓 1장을 발권한 뒤, TicketMachine.printTotalTickets()를 호출하여 총 발권 수가 올바르게 나오는지 확인하세요.*/
-
+class TicketMachine{
+    static int totalTickets = 0;
+    void issueTicket()
+}
 /*[문제 6] 게임의 고정 설정 값을 관리하는 GameConfig 클래스를 만드세요.
 1. 이 클래스 안에, 어디서든 접근 가능하며 절대 변하지 않는 다음 상수들을 public static final로 선언하세요.
 최대 레벨 MAX_LEVEL = 99
