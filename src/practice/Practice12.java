@@ -1,6 +1,6 @@
 package practice;
 
-public class Practice11 {
+public class Practice12 {
     public static void main(String[] args) {
         //문제1
         Student student = new Student();
@@ -23,7 +23,31 @@ public class Practice11 {
 
         //문제6
         Vehicle vehicle = new Bus();
-        if(vehicle.in)
+        // 객체참조변수 instanceof 클래스명 : 변수의 타입이 클래스명 이 맞는지 true/false
+        if(vehicle instanceof Bus){
+            Bus bus = (Bus)vehicle; //Bus타입 변수에 형변환한 객체 담음
+            bus.checkFare();
+        }
+
+        //문제8
+        Character character = new Character();
+        Sword sword = new Sword();
+        Gun gun = new Gun();
+        character.use(sword);
+        character.use(gun);
+
+        //문제9
+        System.out.println("문제9)");
+        SuperClass obj = new SubClass();
+        //obj.name //값만 있고 동작이 없으므로 불가능!!
+        System.out.println(obj.name);
+        //메소드는 동작이 있으므로 가능
+        obj.method();
+
+        //문제10
+        Laptop laptop = new Laptop();
+        Device device = (Device) laptop;
+        Electronic electronic = (Electronic) laptop;
 
     }
 }
@@ -109,14 +133,50 @@ class Bus extends Vehicle{
 1. Weapon 클래스와 이를 상속받는 Sword, Gun 클래스를 만드세요. 각 클래스는 "무기로 공격합니다.", "검으로 공격합니다.", "총으로 공격합니다."를 출력하는 attack() 메소드를 가집니다. (오버라이딩 활용)
 2. Weapon 타입의 매개변수를 받아 그 객체의 attack() 메소드를 호출하는 Character 클래스와 use(Weapon weapon) 메소드를 만드세요.
 3. main 함수에서 Sword 객체와 Gun 객체를 생성한 뒤, 이 객체들을 Character의 use() 메소드에 인자로 전달하여 각기 다른 결과가 출력되는 것을 확인하세요.*/
-
+class Weapon{
+    void attack(){
+        System.out.println("무기로 공격합니다.");
+    }
+}
+class Sword extends Weapon{
+    @Override
+    void attack(){
+        System.out.println("검으로 공격합니다.");
+    }
+}
+class Gun extends Weapon{
+    @Override
+    void attack(){
+        System.out.println("총으로 공격합니다.");
+    }
+}
+class Character{
+    void use(Weapon weapon){
+        weapon.attack();
+    }
+}
 /*[문제 9] 필드와 메소드의 오버라이딩 차이
 1. String name = "상위"; 필드와 method() 메소드("상위 메소드" 출력)를 가진 SuperClass를 만드세요.
 2. SuperClass를 상속받고, String name = "하위"; 필드와 method() 메소드("하위 메소드" 출력)를 가진 SubClass를 만드세요.
 3. SuperClass obj = new SubClass(); 로 객체를 생성한 뒤, obj.name과 obj.method()를 각각 호출했을 때의 결과를 확인하고, 왜 다른 결과가 나오는지 주석으로 설명하세요.*/
-
+class SuperClass{
+    String name = "상위";
+    void method(){
+        System.out.println("상위 메소드");
+    }
+}
+class SubClass extends SuperClass{
+    String name = "하위";
+    @Override
+    void method(){
+        System.out.println("하위메소드");
+    }
+}
 /*[문제 10] 다중 상속 관계
 1. Device 클래스를 만드세요.
 2. Device를 상속받는 Electronic 클래스를 만드세요.
 3. Electronic을 상속받는 Laptop 클래스를 만드세요.
 4. main 함수에서 Laptop 객체를 생성한 뒤, 이 객체가 Electronic 타입과 Device 타입으로도 형 변환이 가능한지 instanceof 연산자로 확인하고 결과를 출력하세요.*/
+class Device {}
+class Electronic extends Device{}
+class Laptop extends Electronic{}

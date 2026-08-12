@@ -89,7 +89,15 @@ class CircleCalculator{
 5. machine1으로 티켓 2장, machine2로 티켓 1장을 발권한 뒤, TicketMachine.printTotalTickets()를 호출하여 총 발권 수가 올바르게 나오는지 확인하세요.*/
 class TicketMachine{
     static int totalTickets = 0;
-    void issueTicket()
+    void issueTicket(){
+        totalTickets = totalTickets+1;
+        System.out.println("티켓 1장을 발권했습니다.");
+        return;
+    }
+    static void printTotalTickets(){
+        System.out.print(totalTickets);
+        return;
+    }
 }
 /*[문제 6] 게임의 고정 설정 값을 관리하는 GameConfig 클래스를 만드세요.
 1. 이 클래스 안에, 어디서든 접근 가능하며 절대 변하지 않는 다음 상수들을 public static final로 선언하세요.

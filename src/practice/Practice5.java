@@ -25,7 +25,17 @@ public class Practice5 {
 
         //문제5
         for(int i =1; i<=30; i++){
-            if(i)
+            if(i%3 != 0){
+                System.out.println(i);
+            }
+        }
+        //문제6
+        int total = 0;
+        for(int i=1; ; i++){
+            if(100<i){
+
+            }
+            
         }
     }
 }
