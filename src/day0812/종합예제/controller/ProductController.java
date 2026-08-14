@@ -13,18 +13,20 @@ public class ProductController {
 
     private IBaseDao ib = ProductDao.getInstance();
 
-    public boolean save(Object obj) {
+    public boolean save(ProductDto productDto) {
         // TODO 1: productDto 전달받아 DAO의 save()를 호출하고 결과 반환
-        Object obj1 = obj;
+        Object obj1 = productDto;
         boolean result = ib.save(obj1);
         return result;
     }
 
+    // 반환
     public ArrayList<ProductDto> findAll() {
-    // <ProductDto> -> <Object> 업캐스팅?
-    // 새로운 하위 타입의 배열을 하나 더 만들어서 그걸 전달한다.
+    //Object -> ProductDto
     ArrayList<Object> list = ib.findAll();
     ArrayList<ProductDto> result = new ArrayList<>();
+    //ArrayList 끼리는 상속관계 아니므로
+    //변환할 타입의 새로운 배열에 하나씩 옮겨 담는다.
     for(Object item : list){
         result.add((ProductDto)item);
     }
