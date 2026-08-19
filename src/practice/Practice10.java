@@ -13,6 +13,23 @@ public class Practice10 {
         CircleCalculator circleCalculator = new CircleCalculator();
         circleCalculator.printCircleArea(5);
 
+        TicketMachine m1 = new TicketMachine();
+        TicketMachine m2 = new TicketMachine();
+        TicketMachine m3 = new TicketMachine();
+
+        m1.issueTicket();
+
+        m2.issueTicket();
+        m2.issueTicket();
+
+        m1.printTotalTickets();
+        m2.printTotalTickets();
+
+        
+        System.out.println("게임 이름: " + GameConfig.GAME_TITLE);
+        System.out.println("최대 레벨: " + GameConfig.MAX_LEVEL);
+        System.out.println("최대 HP: " + GameConfig.MAX_HP);
+
     }
 }
 /*[문제 1] Member 클래스를 만드세요.
@@ -105,3 +122,8 @@ class TicketMachine{
 최대 HP MAX_HP = 10000
 게임 이름 GAME_TITLE = "My RPG"
 2. main 함수에서 객체를 생성하지 않고, GameConfig.GAME_TITLE과 같이 클래스 이름으로 직접 접근하여 모든 설정 값을 출력하세요.*/
+class GameConfig{
+    public static final int MAX_LEVEL = 99;
+    public static final int MAX_HP = 10000;
+    public static final String  GAME_TITLE = "My RPG";
+}

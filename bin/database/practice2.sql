@@ -1,0 +1,84 @@
+CREATE DATABASE practice2;
+USE practice2;
+CREATE Table members(
+    mid INT AUTO_INCREMENT PRIMARY KEY;
+    mname VARCHAR(50) NOT NUll;
+    email VARCHAR(100) UNIQUE NOT NULL;
+    jdate DATETIME DEFAULT  CURRENT_TIMESTAMP;
+    is_active BOOLEAN DEFAULT[TRUE];
+
+)
+
+CREATE TABLE products(
+    pid INT AUTO_INCREMENT PRIMARY KEY,
+    pname VARCHAR(100) NOT NULL,
+    price INT UNSIGNED NOT NULL,
+    strock INT DEFAULT[0] NOT NULL,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP
+)
+
+CREATE Table orders(
+    oid BIGINT AUTO_INCREMENT PRIMARY KEY,
+    odate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    total INT UNSIGNED NOT NULL,
+    # FOREIGN KEY
+    -- FOREIGN KEY (만들 칼럼명) REFERENCES 참조테이블명(칼럼명)
+    FOREIGN KEY (mid) REFERENCES members(mid)
+)
+
+CREATE table items(
+    iid INT AUTO_INCREMENT PRIMARY KEY,
+    quantity INT DEFAULT[1],
+    price INT UNSIGNED NOT NULL,
+    FOREIGN KEY (pid) REFERENCES products(pid),
+    FOREIGN KEY (oid) REFERENCES orders(oid) 
+)
+
+CREATE TABLE students(
+    sid VARCHAR(10) PRIMARY KEY,
+    sname VARCHAR(30) NOT NULL,
+    major VARCHAR(50),
+    grade TINYINT UNSIGNED,
+    enrolled DATE
+)
+
+CREATE TABLE employees(
+    eid INT AUTO_INCREMENT PRIMARY KEY,
+    ename VARCHAR(40) NOT NULL,
+    salary INT UNSIGNED NOT NULL,
+    hdate DATE NOT NULL,
+    department VARCHAR(50)
+)
+
+CREATE TABLE boards(
+    bid INT AUTO_INCREMENT PRIMARY KEY,
+    title VARCHAR(200) NOT NULL,
+    cotent TEXT NOT NULL,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (wid) REFERENCES members(mid)
+)
+
+CREATE TABLE comments(
+    cid INT AUTO_INCREMENT PRIMARY KEY,
+    content VARCHAR(30) NOT NULL,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (wid) REFERENCES members(mid),
+    FOREIGN KEY (bid) REFERENCES boards(bid)
+)
+
+CREATE TABLE payments(
+    pid BIGINT AUTO_INCREMENT PRIMARY KEY,
+    pamount INT UNSIGNED NOT NULL,
+    pmethod VARCHAR(30),
+    pdate DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (oid) REFERENCES orders(oid)
+)
+
+CREATE TABLE review(
+    rid INT AUTO_INCREMENT PRIMARY KEY,
+    rating TINYINT UNSIGNED NOT NULL,
+    review TEXT,
+    created DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (mid) REFERENCES members(mid),
+    FOREIGN KEY (pid) REFERENCES products(pid)
+)

@@ -23,6 +23,23 @@ public class Pracitice9 {
         else
             System.out.println("홀수입니다.");
 
+        //
+        Lamp lamp = new Lamp(re4);
+        System.out.println(lamp.turnOn());
+        System.out.println(lamp.turnOff());
+
+        Product product = new Product(null, re3);
+        product.stock = 10;
+        product.sell(3);
+
+        Visualizer v1 = new Visualizer();
+        v1.getStars(5);
+
+        ParkingLot p1 = new ParkingLot();
+        p1.calculateFee(65);
+        p1.calculateFee(140);
+
+
     }
 }
 
@@ -93,13 +110,14 @@ class Lamp{
         this.isOn = isOn;
     }
     
-    void turnOn(){
+    boolean turnOn(){
         isOn = true;
-        return;
+        return isOn;
     }
 
-    void turnOff(){
+    boolean turnOff(){
         isOn = false;
+        return isOn;
     }
 
 }
@@ -110,7 +128,23 @@ class Lamp{
 1. Product 클래스 안에, 구매 수량을 매개변수로 받아 재고를 차감하는 sell 메소드를 정의하세요. 이 메소드는 재고가 충분하면 재고를 줄이고 true를, 부족하면 "재고 부족" 메시지를 출력하고 false를 반환합니다.
 
 2. main 함수에서 Product 객체를 생성하고 초기 재고를 10으로 설정한 뒤, sell 메소드를 호출하여 구매를 시도하고 결과를 확인하세요.*/
-
+class Product{
+    String name;
+    int stock;
+    public Product(String name, int stock) {
+        this.name = name;
+        this.stock = stock;
+    }
+    boolean sell(int buy){
+        if (buy<=stock){
+            stock = stock-buy;
+            return true;
+        }
+        else
+            System.out.println("재고부족");
+            return false;
+    }
+}
 
 
 /*[문제 7] Visualizer 클래스를 만드세요.
@@ -118,7 +152,15 @@ class Lamp{
 1. 정수 하나를 매개변수로 받아, 그 숫자만큼 "★" 문자를 반복하여 하나의 문자열로 만들어 반환하는 getStars 메소드를 정의하세요.
 
 2. main 함수에서 getStars(5)를 호출하여 반환된 문자열 "★★★★★"를 출력하세요.*/
-
+class Visualizer{
+    String getStars(int 정수){
+        String 결과;
+        for(int i = 1; i<=정수; i++){
+            결과 += "★";
+        }
+        return 결과;
+    }
+}
 
 
 /*[문제 8] ParkingLot 클래스를 만드세요.
@@ -134,3 +176,15 @@ class Lamp{
 일일 최대 요금: 20,000원
 
 3. main 함수에서 calculateFee 메소드에 65, 140을 각각 인자로 전달하여 반환된 요금을 출력하세요.*/
+class ParkingLot{
+    int calculateFee(int 분){
+        int 요금 = 1000;
+        if(30 < 분){
+            요금 += (분-30)/10*500;
+        }
+        if(20000<요금){
+            요금 = 20000;
+        }
+        return 요금;
+    }
+}
