@@ -89,7 +89,7 @@ WHERE stock IS NULL;
 
 
 -- [문제 7]
-WHERE customer = '황소연';
+WHERE customer = '이서연';
 
 -- [문제 8]
 DELETE FROM books 
